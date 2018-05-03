@@ -1,40 +1,37 @@
 
-use std::collections::VecDeque;
-
 fn main() {
     let mut sc = Scanner::new();
-    let n: usize = sc.read();
-    let k: usize = sc.read();
-    let mut poll: Vec<Vec<u8>> = vec![vec![0; k]; n];
+    let w:usize = sc.read();
+    let n:usize = sc.read();
+    let k:usize = sc.read();
+    let mut width: Vec<usize> = vec![0; n];
+    let mut value: Vec<usize> = vec![0; n];
     for i in 0..n {
-        for j in 0..k {
-            poll[i][j] = sc.read()
-        }
+        width[i] = sc.read();
+        value[i] = sc.read();
     }
 
-    let mut bug = false;
-    let mut stack: VecDeque<(u8, u8, usize)> = VecDeque::new();
-    for &x in poll[0].iter() {
-        stack.push_front((x, 0, 0));
-    }
-
-    while stack.len() > 0 {
-        let (num, temp, index) = stack.pop_front().unwrap();
-        if index == n - 1 && num ^ temp == 0 {
-            bug = true;
-            break;
-        } else if index < n - 1 {
-            for &x in poll[index + 1].iter() {
-                stack.push_front((x, num ^ temp, index + 1));
+    let mut dp: Vec<Vec<Vec<usize>>> = vec![vec![vec![0; n]; (w + 1)]; (k + 1)];
+    for i in 1..(k + 1) {
+        for j in 1..(w + 1) {
+            for l in 0..n {
+                if l == 0 {
+                    if j >= width[l] {
+                        dp[i][j][l] = value[l];
+                    }
+                } else {
+                    let mut max = dp[i][j][l - 1];
+                    if j >= width[l] {
+                        if dp[i - 1][j - width[l]][l - 1] + value[l] >= max {
+                            max = dp[i - 1][j - width[l]][l - 1] + value[l];
+                        }
+                    }
+                    dp[i][j][l] = max;
+                }
             }
         }
     }
-
-    if bug {
-        println!("Found");
-    } else {
-            println!("Nothing");
-    }
+    println!("{}", dp[k][w][n - 1]);
 }
 
 struct Scanner {
