@@ -37,7 +37,6 @@ fn read_vector<T>() -> Vec<T> where T: std::str::FromStr, T::Err: std::fmt::Debu
     std::io::stdin().read_line(&mut buf).unwrap();
     return buf
         .split_whitespace()
-        .into_iter()
-        .map(|s| s.parse::<T>().unwrap())
+        .map(|s| s.parse().unwrap())
         .collect();
 }
