@@ -2,37 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="688baa2b-8b9d-4268-93e8-1190632cb015" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/solved.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Atcoder/AGC/rename.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/challenge/2_2_4.rs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/challenge/2_2_5.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC014A.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/014A.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC014B.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/014B.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC014C.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/014C.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC014D.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/014D.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC014Dpartial.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/014Dpartial.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC015A.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/015A.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC015B.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/015B.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC015C.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/015C.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC015D.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/015D.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC016A.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/016A.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC016B.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/016B.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC016C.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/016C.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC016D.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/016D.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC017A.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/017A.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC017B.hs" afterPath="$PROJECT_DIR$/Atcoder/ABC/017B.hs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC017C.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/017C.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC017D.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/017D.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC018C.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/018C.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC018D.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/018D.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC018D_none.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/018D_none.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC019C.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/019C.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/ABC019D.rs" afterPath="$PROJECT_DIR$/Atcoder/ABC/019D.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/AGC024A.rs" afterPath="$PROJECT_DIR$/Atcoder/AGC/024A.rs" />
-      <change beforePath="$PROJECT_DIR$/Atcoder/AGC024B.rs" afterPath="$PROJECT_DIR$/Atcoder/AGC/024B.rs" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Atcoder/AGC/rename.sh" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_1_1.rs" afterPath="$PROJECT_DIR$/challenge/all-search/2_1_1.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_1_2.rs" afterPath="$PROJECT_DIR$/challenge/all-search/2_1_2.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_1_3.rs" afterPath="$PROJECT_DIR$/challenge/all-search/2_1_3.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_2_1.rs" afterPath="$PROJECT_DIR$/challenge/greedy/2_2_1.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_2_2.rs" afterPath="$PROJECT_DIR$/challenge/greedy/2_2_2.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_2_3.rs" afterPath="$PROJECT_DIR$/challenge/greedy/2_2_3.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_2_4.rs" afterPath="$PROJECT_DIR$/challenge/greedy/2_2_4.rs" />
+      <change beforePath="$PROJECT_DIR$/challenge/2_2_5.rs" afterPath="$PROJECT_DIR$/challenge/greedy/2_2_5.rs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +22,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="2_2_3.rs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/challenge/2_2_3.rs">
+      <file leaf-file-name="2_2_5.rs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/challenge/greedy/2_2_5.rs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -53,21 +32,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2_2_4.rs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/challenge/2_2_4.rs">
+      <file leaf-file-name="014Dpartial.rs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Atcoder/ABC/014Dpartial.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2_2_5.rs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/challenge/2_2_5.rs">
+      <file leaf-file-name="014D.rs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Atcoder/ABC/014D.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="57" column="1" lean-forward="false" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,13 +160,24 @@
             <path>
               <item name="solved" type="b2602c69:ProjectViewProjectNode" />
               <item name="solved" type="462c0819:PsiDirectoryNode" />
-              <item name="Atcoder" type="462c0819:PsiDirectoryNode" />
-              <item name="AGC" type="462c0819:PsiDirectoryNode" />
+              <item name="challenge" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="solved" type="b2602c69:ProjectViewProjectNode" />
               <item name="solved" type="462c0819:PsiDirectoryNode" />
               <item name="challenge" type="462c0819:PsiDirectoryNode" />
+              <item name="all-search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="solved" type="b2602c69:ProjectViewProjectNode" />
+              <item name="solved" type="462c0819:PsiDirectoryNode" />
+              <item name="challenge" type="462c0819:PsiDirectoryNode" />
+              <item name="greedy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="solved" type="b2602c69:ProjectViewProjectNode" />
+              <item name="solved" type="462c0819:PsiDirectoryNode" />
+              <item name="codeforces" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -389,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531392398379</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="moved">
+      <created>1531463317300</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1531463317301</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -432,43 +429,14 @@
     <MESSAGE value="20180705" />
     <MESSAGE value="20180712" />
     <MESSAGE value="tree/ greedy" />
-    <option name="LAST_COMMIT_MESSAGE" value="tree/ greedy" />
+    <MESSAGE value="moved" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Atcoder/ABC016C.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Atcoder/ABC014C.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Atcoder/ABC016D.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Atcoder/ABC014D.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2430">
-          <caret line="164" column="1" lean-forward="false" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Atcoder/ABC015A.hs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -805,6 +773,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="57" column="1" lean-forward="false" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/challenge/greedy/2_1_1.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-129">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/challenge/greedy/2_2_5.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Atcoder/ABC/014Dpartial.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Atcoder/ABC/014D.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
