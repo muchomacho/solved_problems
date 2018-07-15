@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="688baa2b-8b9d-4268-93e8-1190632cb015" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/atcoder/ABC/020C.rs" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/atcoder/AGC/026B.rs" afterPath="$PROJECT_DIR$/atcoder/AGC/026B.rs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,11 +74,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="026B.rs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="026B.rs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/atcoder/AGC/026B.rs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="020C.rs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/atcoder/ABC/020C.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2340">
+              <caret line="156" column="1" lean-forward="false" selection-start-line="156" selection-start-column="1" selection-end-line="156" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -157,6 +167,7 @@
         <option value="$PROJECT_DIR$/challenge/2_2_5.rs" />
         <option value="$PROJECT_DIR$/atcoder/AGC/026A.rs" />
         <option value="$PROJECT_DIR$/atcoder/AGC/026B.rs" />
+        <option value="$PROJECT_DIR$/atcoder/ABC/020C.rs" />
       </list>
     </option>
   </component>
@@ -443,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531656052631</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="math mod">
+      <created>1531656073768</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1531656073768</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -489,21 +507,14 @@
     <MESSAGE value="tree/ greedy" />
     <MESSAGE value="moved" />
     <MESSAGE value="yarudake" />
-    <option name="LAST_COMMIT_MESSAGE" value="yarudake" />
+    <MESSAGE value="math mod" />
+    <option name="LAST_COMMIT_MESSAGE" value="math mod" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Atcoder/ABC016C.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Atcoder/ABC014C.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -868,6 +879,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/atcoder/ABC/020C.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="156" column="1" lean-forward="false" selection-start-line="156" selection-start-column="1" selection-end-line="156" selection-end-column="1" />
           <folding />
         </state>
       </provider>
