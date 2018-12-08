@@ -21,11 +21,11 @@ fn eratosthenes(n: usize) -> usize {
     array[1] = false;
     for i in 2..n {
         if array[i] {
-            let res = n / i;
-            if res == 1 {
+            let quotient = n / i;
+            if quotient == 1 {
                 continue;
             } else {
-                for j in 2..(res + 1) {
+                for j in 2..(quotient + 1) {
                     array[i * j] = false;
                 }
             }
