@@ -18,6 +18,7 @@ fn main() {
     let max_l = l.iter().fold(0.0, |acc, k| if *k >= acc { *k } else { acc });
     if count(max_l, &l) >= k {
         println!("{}", max_l);
+        return;
     }
 
     let (mut left, mut right) = (0.0, max_l);
