@@ -25,18 +25,11 @@ fn main() {
     }
     while right - left > 1 {
         let mid = (left + right) / 2;
-        if a[mid] > k {
+        if a[mid] >= k {
             right = mid;
         } else if a[mid] < k {
             left = mid;
-        } else {
-            for i in (0..mid).rev() {
-                if a[i] < k {
-                    right = i + 1;
-                    break;
-                }
-            }
-        }
+        } 
     }
 
     println!("{}", right);
