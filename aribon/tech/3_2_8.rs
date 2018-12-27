@@ -59,10 +59,6 @@ fn main() {
         }
     }
 
-    for i in 0..row.len() {
-        println!("{}", graph[i].iter().map(|i| if *i { "0" } else { "1" }).collect::<Vec<_>>().join(" "));
-    }
-
     println!("{}", bfs(&mut graph));
 }
 
