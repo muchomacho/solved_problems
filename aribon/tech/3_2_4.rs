@@ -24,13 +24,13 @@ fn main() {
     for i in 0..(2usize.pow(n as u32)) {
         let mut colors = graph.clone();
         let mut operation = Vec::new();
-        let mut bin = format!("{:b}", i).chars().collect::<Vec<_>>();
-        bin.reverse();
-        for j in (n - bin.len())..n {
-            if bin[j - n + bin.len()] == '1' {
+        let mut bin = i;
+        for j in 0..n {
+            if bin & 1  == 1 {
                 operation.push((0, j));
                 paint(0, j, &mut colors);
             }
+            bin >>= 1;
         }
         for i in 1..m {
             for j in 0..n {
