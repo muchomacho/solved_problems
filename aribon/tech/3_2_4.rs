@@ -25,7 +25,7 @@ fn main() {
         let mut colors = graph.clone();
         let mut operation = Vec::new();
         let mut bin = i;
-        for j in 0..n {
+        for j in (0..n).rev() {
             if bin & 1  == 1 {
                 operation.push((0, j));
                 paint(0, j, &mut colors);
