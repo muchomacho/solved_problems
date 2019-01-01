@@ -44,16 +44,22 @@ fn main() {
     for i in 0..n {
         if x1[i] == x2[i] {
             let c = column.binary_search(&x1[i]).unwrap();
-            for j in 0..row.len() {
-                if row[j] >= y1[i] && row[j] <= y2[i] {
+            let start = row.binary_search(&y1[i]).unwrap();
+            for j in start..row.len() {
+                if row[j] <= y2[i] {
                     graph[j][c] = false;
+                } else {
+                    break;
                 }
             }
         } else {
             let r = row.binary_search(&y1[i]).unwrap();
-            for j in 0..column.len() {
-                if column[j] >= x1[i] && column[j] <= x2[i] {
+            let start = column.binary_search(&x1[i]).unwrap();
+            for j in start..column.len() {
+                if column[j] <= x2[i] {
                     graph[r][j] = false;
+                } else {
+                    break;
                 }
             }
         }
