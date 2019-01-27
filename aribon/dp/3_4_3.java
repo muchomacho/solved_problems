@@ -49,9 +49,7 @@ public class Main {
 						}
 						dp[crt][k] = res;
 					}
-					System.out.print(dp[crt][k]);
 				}
-				System.out.println("");
 			}
 		}
 
