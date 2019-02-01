@@ -44,7 +44,7 @@ class Matrix {
 				if (i == j) {
 					eye[i][j] = 1;
 				} else {
-					eye[i][i] = 0;
+					eye[i][j] = 0;
 				}
 			}
 		}

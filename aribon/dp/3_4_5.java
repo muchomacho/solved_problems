@@ -2,16 +2,16 @@ import java.util.*;
 
 public class Main {
 	static int n;
-	static int[][] mat_val = {{0, 1}, {2, 2}};
+	static int[][] mat_val = {{2, 1, 0}, {2, 2, 2}, {0, 1, 2}};
 	static Matrix update = new Matrix(mat_val);
-	static int[] vec_val = {1, 2};
+	static int[] vec_val = {2, 2, 0};
 	static Vector init = new Vector(vec_val);
 	static public void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
 
 		Vector ans = update.power(n - 1).vecmul(init);
-		System.out.println(ans.values[1]);
+		System.out.println(ans.values[0]);
 	}
 }
 
@@ -44,7 +44,7 @@ class Matrix {
 				if (i == j) {
 					eye[i][j] = 1;
 				} else {
-					eye[i][i] = 0;
+					eye[i][j] = 0;
 				}
 			}
 		}
