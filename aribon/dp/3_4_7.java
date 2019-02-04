@@ -31,7 +31,7 @@ public class Main {
 		mat = new Matrix(matVal);
 		init = new Matrix(initVal);
 
-		Matrix ans = mat.power(k - 1).matmul(init);
+		Matrix ans = mat.power(k - 1, M).matmul(init, M);
 		
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
@@ -45,7 +45,6 @@ public class Main {
 
 class Matrix {
 	public static int bitNum = 64;
-	public int res = 10007;
 	public int rowNum, colNum;
 	public int[][] values;
 	public Matrix(int[][] values) {
@@ -54,7 +53,7 @@ class Matrix {
 		this.values = values;
 	}
 
-	public Matrix power(long x) {
+	public Matrix power(long x, int res) {
 		boolean[] bin = new boolean[bitNum];
 		for (int i = 0; i < bitNum; i++) {
 			if ((x >> i & 1) == 1) {
@@ -65,20 +64,20 @@ class Matrix {
 		Matrix[] powers = new Matrix[bitNum];
 		powers[0] = this;
 		for (int i = 1; i < bitNum; i++) {
-		       powers[i] = powers[i - 1].matmul(powers[i - 1]);
+		       powers[i] = powers[i - 1].matmul(powers[i - 1], res);
 		}
 
 		Matrix ans = Matrix.eye(this.rowNum);
 		for (int i = 0; i < bitNum; i++) {
 			if (bin[i]) {
-				ans = ans.matmul(powers[i]);
+				ans = ans.matmul(powers[i], res);
 			}
 		}
 
 		return ans;
 	}
 
-	public Matrix matmul(Matrix m) {
+	public Matrix matmul(Matrix m, int res) {
 		int[][] ans = new int[this.rowNum][this.colNum];
 		for (int i = 0; i < this.rowNum; i++) {
 			for (int j = 0; j < m.colNum; j++) {
@@ -92,7 +91,7 @@ class Matrix {
 		return new Matrix(ans);
 	}
 
-	public Vector vecmul(Vector v) {
+	public Vector vecmul(Vector v, int res) {
 		int[] ans = new int[this.rowNum];
 		for (int i = 0; i < this.rowNum; i++) {
 			ans[i] = 0;
