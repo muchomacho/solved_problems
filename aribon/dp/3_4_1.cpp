@@ -1,12 +1,11 @@
 #include <iostream>
 using namespace std;
 
-#define MAX_N 15
 #define INF 1000000000
 
 int n;
-int d[MAX_N][MAX_N];
-int dp[1 << MAX_N][MAX_N];
+int** d;
+int** dp;
 
 int recursive(int S, int v) {
     if (dp[S][v] >= 0) {
@@ -33,12 +32,31 @@ int recursive(int S, int v) {
 int main() {
     cin >> n;
 
+    d = new int*[n];
+    dp = new int*[1 << n];
+    for (int i = 0; i < n; i++) {
+        d[i] = new int[n];
+    }
+    for (int i = 0; i < 1 << n; i++) {
+        dp[i] = new int[n];
+    }
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> d[i][j];
         }
     }
 
-    memset(dp, -1, sizeof(dp));
+    for (int i = 0; i < 1 << n; i++) {
+        memset(dp[i], -1, sizeof(int) * n);
+    }
     cout << recursive(0, 0) << endl;
+
+    for (int i = 0; i < n; i++) {
+        delete [] d[i];
+    }
+    for (int i = 0; i < 1 << n; i++) {
+        delete [] dp[i];
+    }
+    delete [] d;
+    delete [] dp;
 }
