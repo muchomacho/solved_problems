@@ -1,113 +1,115 @@
 import java.util.*;
+import java.lang.reflect.Array;
 
+@SuppressWarnings("unchecked")
 class Main {
 	static Scanner sc;
 	static int n, k;
-	static ArrayList<Edge>[] adj;
+	static HashMap<Integer, Integer>[] adj;
 	public static void main(String[] args) {
 		sc = new Scanner(System.in);
 		n = sc.nextInt();
 		k = sc.nextInt();
-		adj = new ArrayList[n + k + 2];
+		adj = (HashMap<Integer, Integer>[]) Array.newInstance(HashMap.class, n + k + 2);
 		int n_offset = 2;
 		int k_offset = n_offset + n;
 		for (int i = 0; i < adj.length; i++) {
-			adj[i] = new ArrayList();
+			adj[i] = new HashMap<Integer, Integer>();
 		}
 		for (int i = 0; i < n; i++) {
-			adj[0].add(new Edge(n_offset + i, 1));
+			adj[0].put(n_offset + i, 1);
 			for (int j = 0; j < k; j++) {
 				int conn = sc.nextInt();
 				if (conn == 1) {
-					adj[n_offset + i].add(new Edge(k_offset + j, 1));
+					adj[n_offset + i].put(k_offset + j, 1);
 				}
 			}
 		}
 		for (int i = 0; i < k; i++) {
-			adj[k_offset + i].add(new Edge(1, 1));
+			adj[k_offset + i].put(1, 1);
 		}
 
-		System.out.println(max_flow(adj, 0, 1));
+		System.out.println(max_flow(0, 1));
 	}
 
-	public static int max_flow(ArrayList<Edge>[] adj, int src, int snk) {
-		ArrayList<Edge>[] resAdj = adj.clone();
-		for (int i = 0; i < resAdj.length; i++) {
-			if (resAdj[i].size() == 0) {
-				continue;
-			}
-			for (int j = 0; j < resAdj[i].size(); j++) {
-				resAdj[resAdj[i].get(j).to].add(new Edge(j, 0));
+	public static int max_flow(int src, int snk) {
+		HashMap<Integer, Integer>[] resAdj = (HashMap<Integer, Integer>[])Array.newInstance(HashMap.class, adj.length);
+		for (int i = 0; i < adj.length; i++) {
+			resAdj[i] = (HashMap<Integer, Integer>) adj[i].clone();
+		}
+		for (int i = 0; i < adj.length; i++) {
+			Iterator<Map.Entry<Integer, Integer>> it = adj[i].entrySet().iterator();
+			while (it.hasNext()) {
+				resAdj[it.next().getKey()].put(i, 0);
 			}
 		}
 		int flow = 0;
-		ArrayList<Edge> path;
+		Integer[] path;
 		while (true) {
 			path = bfs(resAdj, src, snk);
-			if (path.size() == 0) {
+			if (path.length == 0) {
 				break;
 			}
-			int min_cap = Integer.MAX_VALUE;
-			for (int i = 0; i < path.size() ; i++) {
-				min_cap = Integer.min(min_cap, path.get(i).cap);
+			int minCap = Integer.MAX_VALUE;
+			for (int i = 0; i < path.length - 1; i++) {
+				minCap = Integer.min(minCap, resAdj[path[i]].get(path[i + 1]));
 			}
-			int from = 0;
-			for (int i = 0; i < path.size(); i++) {
-				for (int j = 0; j < resAdj[from].size(); j++) {
-					if (resAdj[from].get(j).to == path.get(i).to) {
-						resAdj[from].get(j).cap -= min_cap;
-						break;
-					}
-				}
-				for (int j = 0; j < resAdj[path.get(i).to].size(); j++) {
-					if (resAdj[path.get(i).to].get(j).to == from) {
-						resAdj[path.get(i).to].get(j).cap += min_cap;
-						break;
-					}
-				}
-				from = path.get(i).to;
+			for (int i = 0; i < path.length - 1; i++) {
+				int oldCap = resAdj[path[i]].get(path[i + 1]);
+				resAdj[path[i]].replace(path[i + 1], oldCap - minCap);
+				oldCap = resAdj[path[i + 1]].get(path[i]);
+				resAdj[path[i + 1]].replace(path[i], oldCap + minCap);
 			}
-			flow += min_cap;
+			flow += minCap;
 		}
-
 		return flow;
 	}
 
-	public static ArrayList<Edge> bfs(ArrayList<Edge>[] adj, int src, int snk) {
-		ArrayDeque<Pair> queue = new ArrayDeque<Pair>();
-		queue.add(new Pair(src, new Edge(src, 0)));
-		ArrayDeque<Pair> usedQueue = new ArrayDeque<Pair>();
-		HashSet<Integer> used = new HashSet<Integer>();
-		used.add(src);
+	public static Integer[] bfs(HashMap<Integer, Integer>[] adj, int src, int snk) {
+		ArrayDeque<Edge> queue = new ArrayDeque<Edge>();
+		queue.add(new Edge(src, src));
+		ArrayDeque<Edge> usedQueue = new ArrayDeque<Edge>();
+		boolean[] used = new boolean[adj.length];
+		for (int i = 0; i < adj.length; i++) {
+			used[i] = false;
+		}
+		used[src] = true;
 		while (queue.size() > 0) {
-			Pair p = queue.poll();
-			int crt = p.edge.to;
-			usedQueue.add(p);
+			Edge e = queue.poll();
+			int crt = e.to;
+			usedQueue.add(e);
 			if (crt == snk) {
 				break;
 			}
-			for (int i = 0; i < adj[crt].size(); i++) {
-				if (used.contains(adj[crt].get(i).to) || adj[crt].get(i).cap == 0) {
+			Iterator<Map.Entry<Integer, Integer>> it = adj[crt].entrySet().iterator();
+			while (it.hasNext()) {
+				Map.Entry<Integer, Integer> pair = it.next();
+				int nxt = pair.getKey();
+				int cap = pair.getValue();
+				if (used[nxt] || cap == 0) {
 					continue;
 				}
-				queue.add(new Pair(crt, adj[crt].get(i)));
-				used.add(adj[crt].get(i).to);
+				queue.add(new Edge(crt, nxt));
+				used[nxt] = true;
 			}
 		}
 
-		ArrayList<Edge> path = new ArrayList();
+		ArrayList<Integer> path = new ArrayList<Integer>();
 		if (usedQueue.size() == 0) {
-			return path;
+			Integer[] arr = new Integer[0];
+			return path.toArray(arr);
 		}
-		Pair tb = usedQueue.pollLast();
-		if (tb.edge.to != snk) {
-			return path;
+		Edge tb = usedQueue.pollLast();
+		if (tb.to != snk) {
+			Integer[] arr = new Integer[0];
+			return path.toArray(arr);
 		}
-		path.add(tb.edge);
+		path.add(tb.to);
+		path.add(tb.from);
 		while (true) {
-			Pair newTb = usedQueue.pollLast();
-			if (newTb.edge.to == tb.from) {
-				path.add(newTb.edge);
+			Edge newTb = usedQueue.pollLast();
+			if (newTb.to == tb.from) {
+				path.add(newTb.from);
 				if (newTb.from == src) {
 					break;
 				}
@@ -115,25 +117,16 @@ class Main {
 			}
 		}
 		Collections.reverse(path);
-		return path;
+		Integer[] arr = new Integer[path.size()];
+		return path.toArray(arr);
 	}
 }
-
 
 class Edge {
-	public int to;
-	public int cap;
-	public Edge(int to, int cap) {
-		this.to = to;
-		this.cap = cap;
-	}
-}
-
-class Pair {
 	public int from;
-	public Edge edge;
-	public Pair(int from, Edge edge) {
+	public int to;
+	public Edge(int from, int to) {
 		this.from = from;
-		this.edge = edge;
+		this.to = to;
 	}
 }
