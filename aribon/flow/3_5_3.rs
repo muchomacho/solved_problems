@@ -104,7 +104,6 @@ fn dijkstra(
             dist.push(((cost + val.0 + h[crt].0 - h[*key].0) * (-1), *key, crt));
         }
     }
-    println!("{:?}", new_h);
     new_h
 }
 
