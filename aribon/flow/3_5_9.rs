@@ -53,7 +53,8 @@ fn main() {
     for j in 0..m {
         add_edge(n + j, snk, shelters[j].1 - people_per_shelter[j], 0, people_per_shelter[j], &mut adj);
     }
-    if let Some(path) = find_negative_cycle(&adj) {
+
+    if let Some(path) = find_negative_cycles(&adj) {
         println!("SUBOPTIMAL");
         println!("{:?}", path);
         let mut better_plan = plan.clone();
@@ -73,7 +74,7 @@ fn main() {
     }
 }
 
-fn add_edge(from: usize, to: usize, cap: i64, cost: i64, rev_cap: i64, adj: &mut Vec<Vec<Edge>>) {
+fn add_edge(from: Vertex, to: Vertex, cap: i64, cost: Cost, rev_cap: i64, adj: &mut Vec<Vec<Edge>>) {
     let (from_dim, to_dim) = (adj[from].len(), adj[to].len());
     adj[from].push(Edge {
         to,
@@ -89,100 +90,47 @@ fn add_edge(from: usize, to: usize, cap: i64, cost: i64, rev_cap: i64, adj: &mut
     });
 }
 
-fn find_negative_cycle(adj: &Vec<Vec<Edge>>) -> Option<Vec<Vertex>> {
-    // floyd-warshall can find negative cycle
-    // found cycles may contain smaller cycles (length <= n) and the length can be longer than n
-    let dist = floyd_warshall(&adj);
-    for i in 0..adj.len() {
-        if dist[i][i].0 >= 0 {
-            continue;
-        }
-
-        // bellman-ford can recover negative cycle connected to source
-        // with n times iteration, it can recover cycle whose length <= n
-        // if a part of cycle whose length > n is passed as src, 
-        // it can recover the smaller cycle which belongs to the original cycle
-        return find_cycle(i, &adj);
-    }
-    None
-}
-
-fn floyd_warshall(adj: &Vec<Vec<Edge>>) -> Vec<Vec<(Cost, Vertex)>> {
+fn find_negative_cycles(adj: &Vec<Vec<Edge>>) -> Option<Vec<Vertex>> {
     let n = adj.len();
     let mut dist = vec![vec![(std::i64::MAX, std::usize::MAX); n]; n];
     for i in 0..n {
-        dist[i][i] = (0, std::usize::MAX);
+        dist[i][i].0 = 0;
     }
     for i in 0..n {
         for ref e in adj[i].iter() {
             if e.cap > 0 {
-                dist[i][e.to] = (e.cost, std::usize::MAX);
+                dist[i][e.to] = (e.cost, i);
             }
         }
     }
-    for i in 0..n {
-        for j in 0..n {
-            for k in 0..n {
-                if i == k || j == k {
-                    continue;
-                }
+    for k in 0..n {
+        for i in 0..n {
+            for j in 0..n {
                 if dist[i][k].0 == std::i64::MAX || dist[k][j].0 == std::i64::MAX {
                     continue;
                 }
                 let new_dist = dist[i][k].0 + dist[k][j].0;
                 if new_dist < dist[i][j].0 {
-                    dist[i][j] = (new_dist, k);
+                    dist[i][j] = (new_dist, dist[k][j].1);
                 }
-            }
-        }
-    }
-    dist
-}
-
-fn find_cycle(start: usize, adj: &Vec<Vec<Edge>>) -> Option<Vec<Vertex>> {
-    let n = adj.len();
-    let mut dist = vec![(std::i64::MAX, std::usize::MAX); n];
-    dist[start].0 = 0;
-    let mut updated = false;
-    for _ in 0..n {
-        for v in 0..n {
-            if dist[v].0 == std::i64::MAX {
-                continue;
-            }
-            for ref e in adj[v].iter() {
-                if e.cap == 0 {
-                    continue;
-                }
-                if dist[v].0 + e.cost < dist[e.to].0 {
-                    dist[e.to] = (dist[v].0 + e.cost, v);
-                    updated = true;
-                    if v == start {
-                        break;
+                if i == j && dist[i][j].0 < 0 {
+                    let mut used = vec![false; n];
+                    let mut path = vec![i];
+                    let mut crt = i;
+                    while !used[crt] {
+                        used[crt] = true;
+                        crt = dist[i][crt].1;
+                        path.push(crt);
                     }
+                    let begin = (0..path.len()).filter(|&i| path[i] == crt).next().unwrap();
+                    let mut cycle = (&path[begin..]).to_vec();
+                    cycle.reverse();
+                    return Some(cycle);
                 }
             }
         }
-        if !updated {
-            return None;
-        }
     }
-
-    let mut used = vec![false; n];
-    let mut path = vec![start];
-    used[start] = true;
-    let mut crt = start;
-    loop {
-        path.push(dist[crt].1);
-        crt = dist[crt].1;
-        if used[crt] {
-            break;
-        }
-        used[crt] = true;
-    }
-    let begin = (0..path.len()).filter(|&i| path[i] == crt).next().unwrap();
-    let mut cycle = (&path[begin..]).to_vec();
-    cycle.reverse();
-    Some(cycle)
+    None
 }
 
 #[allow(dead_code)]
