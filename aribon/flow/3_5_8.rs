@@ -53,7 +53,7 @@ fn add_edge(from: usize, to: usize, cap: i64, cost: i64, adj: &mut Vec<Vec<Edge>
     });
 }
 
-fn minimal_cost_flow(src: usize, snk: usize, flow: i64, adj: &mut Vec<Vec<Edge>>) -> Option<i64> {
+fn minimal_cost_flow(src: Vertex, snk: Vertex, flow: i64, adj: &mut Vec<Vec<Edge>>) -> Option<Cost> {
     let mut total_flow = 0;
     let mut cost = 0;
     let mut h = vec![(0, std::usize::MAX, std::usize::MAX); adj.len()];
@@ -73,6 +73,14 @@ fn minimal_cost_flow(src: usize, snk: usize, flow: i64, adj: &mut Vec<Vec<Edge>>
         let inc = min(min_cap, flow - total_flow);
         total_flow += inc;
         cost += inc * c;
+        let mut crt = snk;
+        while crt != src {
+            let (prv, index) = (h[crt].1, h[crt].2);
+            let rev = adj[prv][index].rev;
+            adj[prv][index].cap -= inc;
+            adj[crt][rev].cap += inc;
+            crt = prv;
+        }
     }
 
     Some(cost)
