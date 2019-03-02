@@ -30,21 +30,19 @@ fn main() {
     for i in 0..boundaries.len() {
         let index = boundaries[i].1 % n;
         if boundaries[i].1 < n {
-            let mut contained = false;
             if let Some(item) = contacts.range(..SetItem(circles[index].0.y, std::usize::MAX)).next_back() {
                 if contains(circles[item.1 % n].0, circles[item.1 % n].1, circles[index].0) {
-                    contained = true;
+                    continue;
                 }
             }
             if let Some(item) = contacts.range(SetItem(circles[index].0.y, 0)..).next() {
                 if contains(circles[item.1 % n].0, circles[item.1 % n].1, circles[index].0) {
-                    contained = true;
+                    continue;
                 }
             }
-            if !contained {
-                contacts.insert(boundaries[i]);
-                outers.push(index);
-            }
+            
+            contacts.insert(boundaries[i]);
+            outers.push(index);
         } else {
             contacts.remove(&boundaries[i]);
         }
